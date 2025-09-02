@@ -4,6 +4,9 @@ services:
     container_name: qemu
     environment:
       BOOT: "cachy"
+      DISK_SIZE: "25G"
+      RAM_SIZE: "15G"
+      CPU_CORE: "4"
     devices:
       - /dev/kvm
       - /dev/net/tun
@@ -13,9 +16,5 @@ services:
       - 8006:8006
     volumes:
       - ./qemu:/storage
-    environment:
-      DISK_SIZE: "25G"
-      RAM_SIZE: "15G"
-      CPU_CORE: "4"
     restart: always
     stop_grace_period: 2m
